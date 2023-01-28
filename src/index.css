@@ -1,0 +1,147 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+h1 {
+  color: #85586f;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+h2 {
+  color: #85586f;
+  font-size: 24px;
+}
+
+.app-card {
+  background-color: #f8ede3;
+}
+
+.c-degree {
+  font-size: 40px;
+  text-align: right;
+  color: #d0b8a8;
+}
+
+.f-degree {
+  font-size: 15px;
+  text-align: right;
+  color: #d0b8a8;
+}
+
+.cur-date {
+  font-size: 17px;
+  text-align: left;
+  padding: 0 0 20px 60px;
+  color: #d0b8a8;
+}
+.cur-temp {
+  font-size: 120px;
+  text-align: right;
+  color: #85586f;
+}
+
+.cur-temp-icon {
+  color: #d0b8a8;
+  font-size: 100px;
+  text-align: right;
+  float: right;
+  display: inline;
+}
+
+.cur-temp-icon :hover {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.cur-precipitation,
+.cur-humidity,
+.cur-wind {
+  color: #85586f;
+  font-size: 14px;
+}
+.current-location,
+.search-button {
+  background-color: #85586f;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  outline: none;
+  padding: 10px 16px;
+  text-align: center;
+  transition: color 100ms;
+  vertical-align: baseline;
+  margin-left: 10px;
+}
+.current-location {
+  margin-left: 10px;
+  position: relative;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.search-button {
+  margin-left: 5px;
+  border-radius: 8px;
+}
+.current-location:hover,
+.current-location:focus,
+.search-button:hover,
+.search-button:focus {
+  background-color: #d0b8a8;
+}
+
+.know-text {
+  color: #d0b8a8;
+  font-size: 14px;
+}
+
+.search-bar {
+  border-block: 2px solid #85586f;
+  border-left: 0 solid #85586f;
+  border-right: 2px solid #85586f;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.search-container {
+  padding: 0;
+}
+
+.fu-day {
+  color: #d0b8a8;
+  font-size: 20px;
+}
+
+.fu-temp {
+  color: #85586f;
+  font-size: 14px;
+}
+
+.fu-icon {
+  color: #d0b8a8;
+  font-size: 25px;
+}
+
+.wear-icon {
+  color: #d0b8a8;
+  font-size: 35px;
+}
+.unit-button {
+  cursor: pointer;
+  color: #d0b8a8;
+  background-color: #f8ede3;
+  border-radius: 107px 107px 107px 107px;
+  border: 0px solid #85586f;
+  position: relative;
+}
+.unit-button:hover {
+  border-radius: 107px 107px 107px 107px;
+  border: 0px solid #85586f;
+  color: #f8ede3;
+  background-color: #85586f;
+  transition: all 0.3s ease-in-out;
+}

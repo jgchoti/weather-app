@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Today's Weather</title>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/da68399f87.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card mb-3 app-card" style="max-width: 540px">
+        <div class="row">
+          <div class="col-12 mb-3"></div>
+          <div class="col-1 mb-3"></div>
+          <div class="col-11">
+            <h1>
+              <i class="fa-solid fa-city"></i>
+              <span id="cityname"> Today's Weather </span>
+            </h1>
+          </div>
+
+          <div class="col-1">
+            <button class="current-location" id="current-location">
+              <i class="fa-solid fa-location-crosshairs"></i>
+            </button>
+          </div>
+          <div class="col-11">
+            <div class="container-fluid mb-3">
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2 search-bar"
+                type="search"
+                placeholder="Enter a city name..."
+                aria-label="Search"
+                id="search-bar"
+              />
+              <button class="search-button" type="submit">Search</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-7 mb-3 text-center serch-result-container">
+            <div class="row">
+              <div class="col-12 cur-date" id="date-time"></div>
+              <div class="col-1"></div>
+              <div class="col-7 cur-temp" id="cur-temp-cel">--</div>
+              <div class="col-3 c-degree">
+                <span id="active">°C </span>
+                <div class="cur-temp-icon">
+                  <i class="fa-solid fa-cloud-sun"></i>
+                </div>
+              </div>
+
+              <div class="col-1 f-degree">
+                <button class="unit-button" id="inactive">°F</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 me-1 mb-3">
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-6 fu-day" id="day1"></div>
+              <div class="col-4 fu-icon">
+                <i class="fa-solid fa-cloud-sun-rain"></i>
+              </div>
+              <div class="col-2"></div>
+              <div class="col-6 fu-temp">17° 7°</div>
+              <div class="col-4"></div>
+              <div class="col-2"></div>
+              <div class="col-6 fu-day" id="day2"></div>
+              <div class="col-4 fu-icon"><i class="fa-solid fa-cloud"></i></div>
+              <div class="col-2"></div>
+              <div class="col-6 fu-temp">17° 7°</div>
+              <div class="col-4 fu-icon"></div>
+              <div class="col-2"></div>
+              <div class="col-6 fu-day" id="day3"></div>
+              <div class="col-4 fu-icon">
+                <i class="fa-solid fa-cloud-showers-heavy"></i>
+              </div>
+              <div class="col-2"></div>
+              <div class="col-6 fu-temp">18° 7°</div>
+              <div class="col-4 fu-icon"></div>
+              <div class="col-2"></div>
+              <div class="col-6 fu-day" id="day4"></div>
+              <div class="col-4 fu-icon"><i class="fa-solid fa-sun"></i></div>
+              <div class="col-2"></div>
+              <div class="col-6 fu-temp">17° 4°</div>
+              <div class="col-4 fu-icon"></div>
+              <div class="col-2"></div>
+              <div class="col-6 fu-day" id="day5"></div>
+              <div class="col-4 fu-icon"><i class="fa-solid fa-wind"></i></div>
+              <div class="col-2"></div>
+              <div class="col-6 fu-temp">17° 5°</div>
+              <div class="col-4 fu-icon"></div>
+            </div>
+          </div>
+          <div class="col-1"></div>
+          <div class="col-11">
+            <h2>
+              <i class="fa-solid fa-magnifying-glass-plus"></i>Good To Know
+            </h2>
+          </div>
+          <div class="col-1"></div>
+          <div class="col-7 know-text">Weather Description:</div>
+          <div class="col-4 cur-precipitation" id="description">--</div>
+          <div class="col-1"></div>
+          <div class="col-7 know-text">Precipitation Probability:</div>
+          <div class="col-4 cur-precipitation" id="precipitation">--</div>
+          <div class="col-1"></div>
+          <div class="col-7 know-text">Humidity:</div>
+          <div class="col-4 cur-humidity" id="humidity">--</div>
+          <div class="col-1"></div>
+          <div class="col-7 mb-3 know-text">Wind:</div>
+          <div class="col-4 cur-wind" id="wind">--</div>
+          <div class="col-1 mb-3"></div>
+          <div class="col-11">
+            <h2>
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              What To Wear
+            </h2>
+          </div>
+          <div class="col-1 mb-3"></div>
+          <div class="col-3 mb-3 wear-icon">
+            <i class="fa-solid fa-umbrella"></i>
+          </div>
+          <div class="col-3 mb-3 wear-icon">
+            <i class="fa-solid fa-socks"></i>
+          </div>
+          <div class="col-3 mb-3 wear-icon">
+            <i class="fa-solid fa-mitten"></i>
+          </div>
+          <div class="col-2 mb-3 wear-icon">
+            <i class="fa-solid fa-hat-wizard"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
