@@ -18,7 +18,7 @@ a {
   color: #2c3639;
 }
 .app-card {
-  background-color: rgba(250, 231, 231, 0.144);
+  background-color: #ffffff39;
 }
 
 .c-degree {
@@ -46,7 +46,6 @@ a {
 }
 
 .cur-temp-icon {
-  color: #dcd7c9;
   font-size: 100px;
   text-align: right;
   float: right;
@@ -61,7 +60,7 @@ a {
 .cur-precipitation,
 .cur-humidity,
 .cur-wind {
-  color: #3f4e4f;
+  color: #4b6587;
   font-size: 14px;
 }
 .current-location,
@@ -124,25 +123,30 @@ a {
 }
 
 .fu-temp {
-  color: #3f4e4f;
+  color: #4b6587;
   font-size: 14px;
 }
 
+.fu-icon,
+.wear-icon,
+.cur-temp-icon {
+  color: #4b6587;
+  filter: drop-shadow(16px 16px 20px rgba(255, 255, 255, 0.308));
+}
+
 .fu-icon {
-  color: #dcd7c9;
   font-size: 25px;
 }
 
 .wear-icon {
-  color: #dcd7c9;
   font-size: 35px;
 }
 .unit-button {
   cursor: pointer;
   color: #3f4e4f;
-  background-color: rgba(250, 231, 231, 0.144);
+  background-color: #ffffff39;
   border-radius: 107px 107px 107px 107px;
-  border: 0px solid rgba(250, 231, 231, 0.144);
+  border: 0px solid #ffffff39;
   position: relative;
 }
 .unit-button:hover {
