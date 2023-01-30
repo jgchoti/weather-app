@@ -126,25 +126,25 @@ function switchBackground() {
   var element = document.getElementsByTagName("body")[0];
   switch (weather) {
     case "sunny":
-      element.style.backgroundImage = "url('image/sun.jpg')";
+      element.style.backgroundImage = "url('./image/sun.jpg')";
       break;
     case "clear sky":
-      element.style.backgroundImage = "url('image/clear-sky.jpg')";
+      element.style.backgroundImage = "url('./image/clear-sky.jpg')";
       break;
     case "scattered clouds":
-      element.style.backgroundImage = "url('image/scattered-clouds.jpg')";
+      element.style.backgroundImage = "url('./image/scattered-clouds.jpg')";
       break;
     case "few clouds":
-      element.style.backgroundImage = "url('image/few-clouds.jpg')";
+      element.style.backgroundImage = "url('./image/few-clouds.jpg')";
       break;
     case "broken clouds":
-      element.style.backgroundImage = "url('image/broken-clouds.jpg')";
+      element.style.backgroundImage = "url('./image/broken-clouds.jpg')";
       break;
     case "snow":
-      element.style.backgroundImage = "url('image/snow.jpg')";
+      element.style.backgroundImage = "url('./image/snow.jpg')";
       break;
     case "rainy":
-      element.style.backgroundImage = "url('image/rain.jpg')";
+      element.style.backgroundImage = "url('./image/rain.jpg')";
       break;
     default:
       element.style.backgroundColor = "white";
