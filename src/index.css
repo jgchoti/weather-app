@@ -3,50 +3,50 @@ body {
   background: #f8ede3;
 }
 h1 {
-  color: #85586f;
+  color: #2c3639;
   font-size: 40px;
   text-transform: uppercase;
 }
 h2 {
-  color: #85586f;
+  color: #2c3639;
   font-size: 24px;
 }
 footer {
-  color: #d0b8a8;
+  color: #2c3639;
 }
 a {
-  color: #85586f;
+  color: #2c3639;
 }
 .app-card {
-  background-color: #f8ede3;
+  background-color: rgba(250, 231, 231, 0.144);
 }
 
 .c-degree {
   font-size: 40px;
   text-align: right;
-  color: #d0b8a8;
+  color: #3f4e4f;
 }
 
 .f-degree {
   font-size: 15px;
   text-align: right;
-  color: #d0b8a8;
+  color: #3f4e4f;
 }
 
 .cur-date {
   font-size: 17px;
   text-align: left;
   padding: 0 0 20px 60px;
-  color: #d0b8a8;
+  color: #3f4e4f;
 }
 .cur-temp {
   font-size: 120px;
   text-align: right;
-  color: #85586f;
+  color: #2c3639;
 }
 
 .cur-temp-icon {
-  color: #d0b8a8;
+  color: #dcd7c9;
   font-size: 100px;
   text-align: right;
   float: right;
@@ -61,15 +61,15 @@ a {
 .cur-precipitation,
 .cur-humidity,
 .cur-wind {
-  color: #85586f;
+  color: #3f4e4f;
   font-size: 14px;
 }
 .current-location,
 .search-button {
-  background-color: #85586f;
+  background-color: #dcd7c9;
   border-style: none;
   box-sizing: border-box;
-  color: #ffffff;
+  color: #3f4e4f;
   cursor: pointer;
   display: inline-block;
   font-size: 20px;
@@ -98,18 +98,19 @@ a {
 .current-location:focus,
 .search-button:hover,
 .search-button:focus {
-  background-color: #d0b8a8;
+  background-color: #3f4e4f;
+  color: #dcd7c9;
 }
 
 .know-text {
-  color: #d0b8a8;
+  color: #3f4e4f;
   font-size: 14px;
 }
 
 .search-bar {
-  border-block: 2px solid #85586f;
-  border-left: 0 solid #85586f;
-  border-right: 2px solid #85586f;
+  border-block: 2px solid #dcd7c9;
+  border-left: 0 solid #dcd7c9;
+  border-right: 2px solid #dcd7c9;
   border-bottom-right-radius: 8px;
   border-top-right-radius: 8px;
 }
@@ -118,36 +119,36 @@ a {
 }
 
 .fu-day {
-  color: #d0b8a8;
+  color: #3f4e4f;
   font-size: 20px;
 }
 
 .fu-temp {
-  color: #85586f;
+  color: #3f4e4f;
   font-size: 14px;
 }
 
 .fu-icon {
-  color: #d0b8a8;
+  color: #dcd7c9;
   font-size: 25px;
 }
 
 .wear-icon {
-  color: #d0b8a8;
+  color: #dcd7c9;
   font-size: 35px;
 }
 .unit-button {
   cursor: pointer;
-  color: #d0b8a8;
-  background-color: #f8ede3;
+  color: #3f4e4f;
+  background-color: rgba(250, 231, 231, 0.144);
   border-radius: 107px 107px 107px 107px;
-  border: 0px solid #85586f;
+  border: 0px solid rgba(250, 231, 231, 0.144);
   position: relative;
 }
 .unit-button:hover {
   border-radius: 107px 107px 107px 107px;
-  border: 0px solid #85586f;
-  color: #f8ede3;
-  background-color: #85586f;
+  border: 0px solid #3f4e4f;
+  color: #dcd7c9;
+  background-color: #3f4e4f;
   transition: all 0.3s ease-in-out;
 }
