@@ -7,6 +7,8 @@ function displayWeather(response) {
   document.querySelector("#description").innerHTML = response.data.weather[0].description
   document.querySelector("#humidity").innerHTML = response.data.main.humidity + " %";
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed * 3.6) + " km/h"
+  switchBackground()
+
 }
 function searchInput(input) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${apiKey}`
@@ -117,4 +119,33 @@ let activeUnitButton = document.querySelector("#active");
 inactiveUnitButton.addEventListener("click", convertUnitClicked);
 let input = document.getElementById("cityname").innerHTML;
 
+//change background color
+
+function switchBackground() {
+  var weather = document.getElementById("description").innerHTML;
+  var element = document.getElementsByTagName("body")[0];
+  switch (weather) {
+    case "sunny":
+      element.style.backgroundImage = "url('image/sun.jpg')";
+      break;
+    case "clear sky":
+      element.style.backgroundImage = "url('image/clear-sky.jpg')";
+      break;
+    case "scattered clouds":
+      element.style.backgroundImage = "url('image/scattered-clouds.jpg')";
+      break;
+    case "broken clouds":
+      element.style.backgroundImage = "url('image/broken-clouds.jpg')";
+      break;
+    case "snow":
+      element.style.backgroundImage = "url('image/snow.jpg')";
+      break;
+    case "rainy":
+      element.style.backgroundImage = "url('image/rain.jpg')";
+      break;
+    default:
+      element.style.backgroundColor = "white";
+      break;
+  }
+}
 searchInput("Bangkok")
