@@ -10,7 +10,12 @@ h2 {
   color: #85586f;
   font-size: 24px;
 }
-
+footer {
+  color: #d0b8a8;
+}
+a {
+  color: #85586f;
+}
 .app-card {
   background-color: #f8ede3;
 }
