@@ -72,16 +72,12 @@ dateTime.innerHTML = `${days[currentDate.getDay()]}, ${months[currentDate.getMon
   } ${currentDate.getDate()}, ${currentDate.getFullYear()} ${fullHour}:${fullMinute}`;
 
 //Forecast Day
-let dayOne = document.querySelector("#day1");
-let dayTwo = document.querySelector("#day2");
-let dayThree = document.querySelector("#day3");
-let dayFour = document.querySelector("#day4");
-let dayFive = document.querySelector("#day5");
-dayOne.innerHTML = `${days[(currentDate.getDay() + 1) % 7]}`;
-dayTwo.innerHTML = `${days[(currentDate.getDay() + 2) % 7]}`;
-dayThree.innerHTML = `${days[(currentDate.getDay() + 3) % 7]}`;
-dayFour.innerHTML = `${days[(currentDate.getDay() + 4) % 7]}`;
-dayFive.innerHTML = `${days[(currentDate.getDay() + 5) % 7]}`;
+for (let i = 1; i <= 5; i++) {
+  let day = document.getElementById(`day${i}`);
+  day.innerHTML = `${days[(currentDate.getDay() + i) % 7]}`
+
+}
+
 
 //convert to Fahrenheit
 function convertUnitClicked(event) {
