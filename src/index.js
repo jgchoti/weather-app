@@ -125,8 +125,8 @@ function switchBackground() {
   var weather = document.getElementById("description").innerHTML;
   var element = document.getElementsByTagName("body")[0];
   switch (weather) {
-    case "sunny":
-      element.style.backgroundImage = "url('./image/sun.jpg')";
+    case "overcast clouds":
+      element.style.backgroundImage = "url('./image/broken-clouds.jpg')";
       break;
     case "clear sky":
       element.style.backgroundImage = "url('./image/clear-sky.jpg')";
