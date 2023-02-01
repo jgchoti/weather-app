@@ -139,7 +139,10 @@ function switchBackground() {
     case "snow":
       element.style.backgroundImage = "url('./image/snow.jpg')";
       break;
-    case "rainy":
+    case "shower rain":
+      element.style.backgroundImage = "url('./image/rain.jpg')";
+      break;
+    case "moderate rain":
       element.style.backgroundImage = "url('./image/rain.jpg')";
       break;
     default:
