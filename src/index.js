@@ -148,6 +148,10 @@ function switchBackground() {
     default:
       element.style.backgroundColor = "white";
       break;
+    case "light snow":
+      element.style.backgroundImage = "url('./image/snow.jpg')";
+      break;
+
   }
 }
 searchInput("Bangkok")
