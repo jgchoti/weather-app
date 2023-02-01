@@ -1,6 +1,8 @@
 body {
   font-family: "Poppins", sans-serif;
   background: white;
+  background-size: 1500px;
+  background-position-x: center;
 }
 h1 {
   color: #2c3639;
@@ -13,12 +15,14 @@ h2 {
 }
 footer {
   color: #2c3639;
+  text-align: center;
 }
 a {
   color: #2c3639;
 }
 .app-card {
   background-color: #ffffff39;
+  margin: 0 auto;
 }
 
 .c-degree {
