@@ -21,8 +21,9 @@ a {
   color: #2c3639;
 }
 .app-card {
-  background-color: #ffffff39;
+  background-color: #ffffffb9;
   margin: 0 auto;
+  background-repeat: no-repeat;
 }
 
 .c-degree {
