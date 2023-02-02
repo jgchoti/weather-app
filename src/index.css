@@ -1,8 +1,11 @@
 body {
   font-family: "Poppins", sans-serif;
   background: white;
+  background-size: 1500px;
+  background-position-x: center;
+  background-repeat: no-repeat;
 }
-@media (min-width: 43rem) {
+@media (max-width: 43rem) {
   .app-card {
     width: 200%;
   }
