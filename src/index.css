@@ -5,6 +5,21 @@ body {
   background-position-x: center;
   background-repeat: no-repeat;
 }
+@media (min-width: 43rem) {
+  .app-card {
+    width: 200%;
+  }
+  body {
+    background-size: 700px;
+    background-repeat: no-repeat;
+  }
+}
+@media (min-width: 62rem) {
+  body {
+    background-size: 900px;
+    background-repeat: no-repeat;
+  }
+}
 h1 {
   color: #2c3639;
   font-size: 40px;
