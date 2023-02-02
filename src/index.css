@@ -5,16 +5,7 @@ body {
   background-position-x: center;
   background-repeat: no-repeat;
 }
-@media (max-width: 43rem) {
-  .app-card {
-    width: 200%;
-  }
-  body {
-    background-size: 800px;
-    background-position-x: center;
-    background-repeat: no-repeat;
-  }
-}
+
 h1 {
   color: #2c3639;
   font-size: 40px;
