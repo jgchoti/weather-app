@@ -119,7 +119,7 @@ let input = document.getElementById("cityname").innerHTML;
 
 function switchBackground() {
   var weather = document.getElementById("description").innerHTML;
-  var element = document.getElementsByTagName("body")[0];
+  var element = document.getElementById("app-card");
   switch (weather) {
     case "overcast clouds":
       element.style.backgroundImage = "url('./image/broken-clouds.jpg')";
