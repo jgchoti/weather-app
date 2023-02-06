@@ -19,6 +19,7 @@ h1 {
   color: #2c3639;
   font-size: 40px;
   text-transform: uppercase;
+  padding-top: 15px;
 }
 h2 {
   color: #2c3639;
@@ -33,7 +34,10 @@ a {
 }
 .app-card {
   background-color: #ffffffb9;
-  margin: 0 auto;
+  margin: 30px auto 30px;
+  max-width: 600px;
+  border: 2px solid #dcd7c9;
+  border-radius: 15px;
 }
 
 .c-degree {
@@ -55,22 +59,25 @@ a {
   color: #3f4e4f;
 }
 .cur-temp {
-  font-size: 120px;
+  font-size: 110px;
   text-align: right;
   color: #2c3639;
+  padding-top: 30px;
 }
 
 .cur-temp-icon {
   font-size: 100px;
   text-align: right;
-  float: right;
+  position: relative;
+  bottom: -30px;
+  right: 60px;
   display: inline;
 }
-
+/* 
 .cur-temp-icon :hover {
   opacity: 0;
   transition: all 0.3s ease-in-out;
-}
+} */
 
 .cur-precipitation,
 .cur-humidity,
@@ -140,6 +147,9 @@ a {
 .fu-temp {
   color: #4b6587;
   font-size: 14px;
+  position: relative;
+  top: -10px;
+  display: inline;
 }
 
 .fu-icon,
