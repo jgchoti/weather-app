@@ -8,6 +8,7 @@ function displayWeather(response) {
   document.querySelector("#humidity").innerHTML = response.data.main.humidity + " %";
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed * 3.6) + " km/h"
   switchBackground()
+  switchCardBackground()
 
 }
 function searchInput(input) {
@@ -116,7 +117,6 @@ inactiveUnitButton.addEventListener("click", convertUnitClicked);
 let input = document.getElementById("cityname").innerHTML;
 
 //change background color
-
 function switchBackground() {
   var weather = document.getElementById("description").innerHTML;
   var element = document.getElementsByTagName("body")[0];
@@ -145,13 +145,20 @@ function switchBackground() {
     case "moderate rain":
       element.style.backgroundImage = "url('./image/rain.jpg')";
       break;
-    default:
-      element.style.backgroundColor = "white";
-      break;
     case "light snow":
       element.style.backgroundImage = "url('./image/snow.jpg')";
       break;
-
+    case "mist":
+      element.style.backgroundImage = "url('./image/mist.jpg')";
+      break;
+    case "fog":
+      element.style.backgroundImage = "url('./image/mist.jpg')";
+      break;
+    default:
+      element.style.backgroundColor = "white";
+      break;
   }
 }
+
+
 searchInput("Bangkok")
