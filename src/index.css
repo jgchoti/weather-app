@@ -83,7 +83,9 @@ a.dark-mode {
   color: #4b6587;
   font-size: 16px;
 }
-
+.cur-description {
+  text-transform: capitalize;
+}
 .dark-mode {
   color: #ada6a4;
 }
