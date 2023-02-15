@@ -174,7 +174,7 @@ function switchBackground() {
         element.style.backgroundImage = "url('./image/broken-clouds.jpg')";
         break;
       case "clear sky":
-        element.style.backgroundImage = "url('./image/scattered-clouds.jpg')";
+        element.style.backgroundImage = "url('./image/few-clouds.jpg')";
         break;
       case "scattered clouds":
         element.style.backgroundImage = "url('./image/scattered-clouds.jpg')";
