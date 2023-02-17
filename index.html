@@ -14,12 +14,9 @@
       src="https://kit.fontawesome.com/da68399f87.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/index.css" />
   </head>
@@ -50,6 +47,7 @@
                 placeholder="Enter a city name..."
                 aria-label="Search"
                 id="search-bar"
+                autocomplete="off"
               />
               <button class="search-button" type="submit">Search</button>
               </div>
@@ -71,6 +69,7 @@
                 <button class="unit-button" id="inactive">°F</button>
               </div>
             </div>
+            <h2 id="description"></h2>
           </div>
           <div class="col-4 me-1 mb-3">
             <div class="row">
@@ -112,13 +111,9 @@
           </div>
           <div class="col-1"></div>
           <div class="col-11">
-            <h2>
-              <i class="fa-solid fa-magnifying-glass-plus"></i>Good To Know
-            </h2>
           </div>
           <div class="col-1"></div>
-          <div class="col-7 know-text" >Weather Description:</div>
-          <div class="col-4 cur-description" id="description">--</div>
+          <div class="col-11 know-text" >Good To Know <i class="fa-solid fa-magnifying-glass-plus"></i></div>
           <div class="col-1"></div>
           <div class="col-7 know-text" >Humidity:</div>
           <div class="col-4 cur-humidity" id="humidity">--</div>
