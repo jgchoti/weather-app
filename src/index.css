@@ -28,7 +28,9 @@ h1 {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 footer,
@@ -76,27 +78,21 @@ a.dark-mode {
   width: 120px;
 }
 
-.cur-description,
 .cur-humidity,
 .cur-wind,
 .fu-temp {
   color: #4b6587;
   font-size: 16px;
 }
-.cur-description {
-  text-transform: capitalize;
-}
+
 .dark-mode {
   color: #ada6a4;
 }
 
 h1.dark-mode,
-h2.dark-mode {
-  color: #ded7d3;
-}
-
+h2.dark-mode,
 .cur-temp.dark-mode {
-  color: #8d8d8d;
+  color: #ded7d3;
 }
 
 .app-card.dark-mode {
