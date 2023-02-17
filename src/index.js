@@ -204,29 +204,24 @@ function switchBackground() {
       case "clear sky":
         element.style.backgroundImage = "url('./image/clear-sky.jpg')";
         break;
-      case "clouds":
-        if (weather.includes("clouds")) {
-          element.style.backgroundImage = "url('./image/clouds.jpg')";
-        }
-        break;
-      case "drizzle":
-        if (weather.includes("drizzle")) {
-          element.style.backgroundImage = "url('./image/drizzle.jpg')";
-        }
-        break;
-      case "rain":
-        if (weather.includes("rain")) {
-          element.style.backgroundImage = "url('./image/rain.jpg')";
-        }
+      case "overcast clouds":
+      case "scattered clouds":
+      case "few clouds":
+      case "broken clouds":
+        element.style.backgroundImage = "url('./image/clouds.jpg')";
         break;
       case "snow":
-        if (weather.includes("snow")) {
-          element.style.backgroundImage = "url('./image/snow.jpg')";
-        }
+      case "light snow":
+        element.style.backgroundImage = "url('./image/snow.jpg')";
+        break;
+      case "light intensity drizzle":
+        element.style.backgroundImage = "url('./image/drizzle.jpg')";
+        break;
+      case "shower rain":
+      case "moderate rain":
+        element.style.backgroundImage = "url('./image/rain.jpg')";
         break;
       case "mist":
-        element.style.backgroundImage = "url('./image/mist.jpg')";
-        break;
       case "fog":
         element.style.backgroundImage = "url('./image/mist.jpg')";
         break;
