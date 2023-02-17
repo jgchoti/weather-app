@@ -7,8 +7,9 @@ function displayWeather(response) {
   activeUnitButton.innerHTML = `°C`;
   document.querySelector("#description").innerHTML = response.data.condition.description
   document.querySelector("#humidity").innerHTML = response.data.temperature.humidity + " %";
-  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed * 3.6) + " km/h"
-  document.querySelector("#cur-temp-icon").setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`)
+  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed) + " km/h"
+  document.querySelector("#cur-temp-icon").setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
+  document.querySelector("#cur-temp-icon").setAttribute("alt", `${response.data.condition.icon}`)
   document.getElementById("search-bar").value = "";
   switchBackground()
 }
@@ -16,29 +17,59 @@ function searchInput(input) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${input}&key=${apiKey}`
   currentUnit = "c"
   let units = "metric"
-  axios.get(`${apiUrl}&units=${units}`).then(displayWeather)
+  axios.get(`${apiUrl}&units=${units}`)
+    .then(function (response) {
+      if (response.data.status === 'not_found') {
+        alert(`Looks like the weather gods are feeling mischievous today 🤪 I can't seem to find the city name "${input}". Mind trying another one?`);
+      } else {
+        displayWeather(response)
+      }
+    })
+    .catch(error => {
+      alert("Oops, something went wrong. Did you break the internet? 🤔 Maybe try reloading and see if that helps? 🔄");
+    })
 }
-function searchBar(event) {
+
+function handleSubmit(event) {
   event.preventDefault()
   let input = document.getElementById("search-bar").value;
-  searchInput(input);
+  if (input.length === 0) {
+    alert("Don't keep me in suspense 🙏 Please enter a city name so I can tell you the weather 🌞")
+  } else {
+    searchInput(input);
+  }
 }
 
 let apiKey = "e547dbf820o8383e8e046fe4fba3e3t4"
 let currentTempElement = document.getElementById("cur-temp");
 let form = document.querySelector("form");
-form.addEventListener("submit", searchBar);
+form.addEventListener("submit", handleSubmit);
 
 //Geolocation API
 function getUserLocation(event) {
-  event.preventDefault()
-  navigator.geolocation.getCurrentPosition(getWeatherGeolocation)
+  event.preventDefault();
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getWeatherGeolocation, handleGeolocationError);
+  } else {
+    alert("Looks like your browser is lost in space 🚀 and doesn't support geolocation. Maybe try a different one? 🤔");
+  }
 }
+
+function handleGeolocationError(error) {
+  alert("Oops, something went wrong with your location. Are you hiding behind a cloud? ☁️")
+}
+
 function getWeatherGeolocation(position) {
   currentUnit = "c"
   let apiGeoUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`;
-  axios.get(apiGeoUrl).then(displayWeather);
-
+  axios.get(apiGeoUrl)
+    .then(function (response) {
+      if (response.data.status === 'not_found') {
+        alert(`Looks like the weather gods are feeling mischievous today 🤪 I can't seem to find your location. Mind trying another one?`);
+      } else {
+        displayWeather(response)
+      }
+    })
 }
 
 let currentLocationButton = document.querySelector("#current-location");
@@ -129,15 +160,15 @@ for (let i = 1; i <= 5; i++) {
 function convertUnitClicked(event) {
   if (currentUnit === `c`) {
     currentUnit = "f";
-    let input = document.getElementById("cityname").innerHTML;
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${input}&key=${apiKey}`
+    let cityName = document.getElementById("cityname").innerHTML;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${apiKey}`
     let units = "imperial"
     axios.get(`${apiUrl}&units=${units}`).then(convertToFah)
 
   } else {
     currentUnit = "c";
-    let input = document.getElementById("cityname").innerHTML;
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${input}&key=${apiKey}`
+    let cityName = document.getElementById("cityname").innerHTML;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${apiKey}`
     let units = "metric"
     axios.get(`${apiUrl}&units=${units}`).then(convertToCel)
   }
@@ -159,7 +190,7 @@ let currentUnit = "c"; // can also be 'f'
 let inactiveUnitButton = document.querySelector("#inactive");
 let activeUnitButton = document.querySelector("#active");
 inactiveUnitButton.addEventListener("click", convertUnitClicked);
-let input = document.getElementById("cityname").innerHTML;
+// let input = document.getElementById("cityname").innerHTML;
 
 // change background color
 function switchBackground() {
