@@ -220,6 +220,8 @@ function switchBackground() {
       case "shower rain":
       case "moderate rain":
       case "light rain":
+      case "rain":
+      case "Thunderstorm":
         element.style.backgroundImage = "url('./image/rain.jpg')";
         break;
       case "mist":
