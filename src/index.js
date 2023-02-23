@@ -1,7 +1,33 @@
+//Display forecast
+function displayForecast(response) {
+  const futureWeatherIcon = document.querySelectorAll(".fu-icon");
+  const futureWeatherTempMax = document.querySelectorAll(".fu-max-temp");
+  const futureWeatherTempMin = document.querySelectorAll(".fu-min-temp");
+  for (let i = 0; i < 5; i++) {
+    futureWeatherIcon[i].setAttribute("src", `${response.data.daily[i].condition.icon_url}`);
+    futureWeatherTempMax[i].innerHTML = `${Math.round(response.data.daily[i].temperature.maximum)}°`;
+    futureWeatherTempMin[i].innerHTML = `  ${Math.round(response.data.daily[i].temperature.minimum)}°`;
+  }
+}
+
+function getForecast(cityName) {
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${cityName}&key=${apiKey}`
+  let units = "metric"
+  axios.get(`${apiUrl}&units=${units}`)
+    .then(function (response) {
+      displayForecast(response)
+    }
+    )
+    .catch(error => {
+      alert("Oops, something went wrong. Did you break the internet? 🤔 Maybe try reloading and see if that helps? 🔄");
+    })
+}
+
 //Search bar
 function displayWeather(response) {
   document.querySelector("#cityname").innerHTML = response.data.city + ", " + response.data.country;
   let temperature = response.data.temperature.current;
+  let cityName = response.data.city
   currentTempElement.innerHTML = Math.round(temperature)
   inactiveUnitButton.innerHTML = `°F`;
   activeUnitButton.innerHTML = `°C`;
@@ -12,6 +38,7 @@ function displayWeather(response) {
   document.querySelector("#cur-temp-icon").setAttribute("alt", `${response.data.condition.icon}`)
   document.getElementById("search-bar").value = "";
   switchBackground()
+  getForecast(cityName)
 }
 function searchInput(input) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${input}&key=${apiKey}`
@@ -90,10 +117,13 @@ if (fullHour < 10) {
 }
 let dateTime = document.querySelector("#date-time");
 dateTime.innerHTML = `Last Update: ${fullDays[currentDate.getDay()]} ${fullHour}:${fullMinute}`;
-
+//Forecast Day
+for (let i = 1; i <= 5; i++) {
+  let day = document.getElementById(`day${i}`);
+  day.innerHTML = `${days[(currentDate.getDay() + i) % 7]}`
+}
 // Dark Mode
 const isDarkMode = fullHour >= 18 || fullHour <= 6;
-
 const elementCard = document.getElementById("app-card");
 const h1 = document.querySelector("h1");
 const h2 = document.querySelector("h2");
@@ -149,13 +179,6 @@ if (isDarkMode) {
   futureTemp.forEach(element => element.classList.remove("dark-mode"))
 }
 
-//Forecast Day
-for (let i = 1; i <= 5; i++) {
-  let day = document.getElementById(`day${i}`);
-  day.innerHTML = `${days[(currentDate.getDay() + i) % 7]}`
-
-}
-
 //convert to Fahrenheit
 function convertUnitClicked(event) {
   if (currentUnit === `c`) {
@@ -178,19 +201,36 @@ function convertToFah(response) {
   currentTempElement.innerHTML = Math.round(response.data.temperature.current)
   inactiveUnitButton.innerHTML = `°C`;
   activeUnitButton.innerHTML = `°F`;
+  getForecastinFah(response.data.city)
 }
 
 function convertToCel(response) {
   currentTempElement.innerHTML = Math.round(response.data.temperature.current)
   inactiveUnitButton.innerHTML = `°F`;
   activeUnitButton.innerHTML = `°C`;
+  getForecast(response.data.city)
+}
+
+function getForecastinFah(cityName) {
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${cityName}&key=${apiKey}`
+  let units = "imperial"
+  axios.get(`${apiUrl}&units=${units}`).then(displayForecastInFah)
+}
+
+function displayForecastInFah(response) {
+  const futureWeatherTempMax = document.querySelectorAll(".fu-max-temp");
+  const futureWeatherTempMin = document.querySelectorAll(".fu-min-temp");
+  for (let i = 0; i < 5; i++) {
+    futureWeatherTempMax[i].innerHTML = `${Math.round(response.data.daily[i].temperature.maximum)}°`;
+    futureWeatherTempMin[i].innerHTML = `  ${Math.round(response.data.daily[i].temperature.minimum)}°`;
+  }
 }
 
 let currentUnit = "c"; // can also be 'f'
 let inactiveUnitButton = document.querySelector("#inactive");
 let activeUnitButton = document.querySelector("#active");
 inactiveUnitButton.addEventListener("click", convertUnitClicked);
-// let input = document.getElementById("cityname").innerHTML;
+
 
 // change background color
 function switchBackground() {
