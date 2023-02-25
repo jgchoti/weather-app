@@ -33,7 +33,7 @@ function displayWeather(response) {
   activeUnitButton.innerHTML = `°C`;
   document.querySelector("#description").innerHTML = response.data.condition.description
   document.querySelector("#humidity").innerHTML = response.data.temperature.humidity + " %";
-  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed) + " km/h"
+  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed) + " mph"
   document.querySelector("#cur-temp-icon").setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
   document.querySelector("#cur-temp-icon").setAttribute("alt", `${response.data.condition.icon}`)
   document.getElementById("search-bar").value = "";
