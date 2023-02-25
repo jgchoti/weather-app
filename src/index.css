@@ -162,6 +162,7 @@ h2.dark-mode,
   color: #3f4e4f;
   font-size: 25px;
 }
+
 .know-text.dark-mode,
 .fu-day.dark-mode,
 .active-unit.dark-mode {
@@ -170,8 +171,15 @@ h2.dark-mode,
 .fu-temp {
   font-size: 14px;
   position: relative;
-  top: -10px;
+  top: -15px;
   display: inline;
+}
+.fu-max-temp {
+  font-weight: 600;
+  padding-right: 14px;
+}
+.fu-min-temp {
+  font-weight: 300;
 }
 
 .fu-icon,
